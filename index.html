@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Magang - Sistem Arsip Data SD Pekanbaru</title>
+    <style>
+        /* Gaya untuk laporan magang */
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+        
+        .container {
+            width: 21cm;
+            min-height: 29.7cm;
+            padding: 2cm;
+            margin: 1cm auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @media print {
+            .container {
+                width: 21cm;
+                height: 29.7cm;
+                margin: 0;
+                padding: 2cm;
+                box-shadow: none;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Times New Roman', serif;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        h1 {
+            font-size: 14pt;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 2cm;
+        }
+        
+        h2 {
+            font-size: 12pt;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            text-align: left;
+            margin-top: 1em;
+        }
+        
+        p {
+            font-size: 12pt;
+            text-align: justify;
+            margin: 0.5em 0;
+            text-indent: 1.25cm;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            font-size: 12pt;
+        }
+        
+        th, td {
+            border: 1px solid #000;
+            padding: 0.3em 0.5em;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .right {
+            text-align: right;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        .cover-page {
+            text-align: center;
+            margin-top: 5cm;
+        }
+        
+        .cover-page h1 {
+            font-size: 16pt;
+            margin-bottom: 1.5cm;
+            text-transform: uppercase;
+        }
+        
+        .cover-page p {
+            text-align: center;
+            text-indent: 0;
+            margin: 2em 0;
+        }
+        
+        .approval-table {
+            margin-top: 3cm;
+            width: 100%;
+        }
+        
+        .approval-table td {
+            border: none;
+            padding: 0.5em;
+            vertical-align: top;
+            width: 50%;
+        }
+        
+        .signature-line {
+            margin-top: 3cm;
+            border-bottom: 1px solid #000;
+            width: 70%;
+            display: inline-block;
+        }
+        
+        .content-table {
+            width: 100%;
+            border: none;
+        }
+        
+        .content-table td {
+            border: none;
+            padding: 0.2em;
+            vertical-align: top;
+        }
+        
+        .content-table .page-number {
+            text-align: right;
+        }
+        
+        .figure-caption {
+            font-weight: bold;
+            margin-top: 0.5em;
+            text-align: center;
+        }
+        
+        .list-item {
+            margin-left: 1.25cm;
+            text-indent: -1.25cm;
+            margin-bottom: 0.5em;
+        }
+        
+        .no-indent {
+            text-indent: 0;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 2cm;
+            width: 17cm;
+            text-align: center;
+            font-size: 10pt;
+        }
+        
+        .chapter-title {
+            page-break-before: always;
+            padding-top: 2cm;
+        }
+        
+        .header {
+            display: none; /* Menyembunyikan header dengan logo */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Halaman Sampul -->
+        <div class="cover-page">
+            <h1>LAPORAN MAGANG</h1>
+            <h2>PEMBUATAN SISTEM ARSIP DATA UNTUK SEKOLAH DASAR<br>DI SELURUH KOTA PEKANBARU</h2>
+            <p>Dipersiapkan oleh:</p>
+            <p><strong>NAMA MAHASISWA</strong></p>
+            <p><strong>NIM: 123456789</strong></p>
+            <p>Program Studi Teknik Informatika</p>
+            <p>2024</p>
+        </div>
+
+        <!-- Halaman Pengesahan -->
+        <div class="page-break"></div>
+        
+        <h1 class="center">HALAMAN PENGESAHAN</h1>
+        <h2 class="center">LAPORAN MAGANG</h2>
+        
+        <p class="no-indent">Laporan ini telah diperiksa dan disetujui pada tanggal: 20 September 2024</p>
+        
+        <table class="approval-table">
+            <tr>
+                <td class="center">
+                    <p>Dosen Pembimbing</p>
+                    <div class="signature-line"></div>
+                    <p>Nama: Dr. Ahmad S.T., M.Kom.</p>
+                    <p>NIDN: 0123456789</p>
+                </td>
+                <td class="center">
+                    <p>Pembimbing Lapangan</p>
+                    <div class="signature-line"></div>
+                    <p>Nama: Budi Santoso, S.Kom.</p>
+                    <p>Jabatan: Kepala Dinas Pendidikan Kota Pekanbaru</p>
+                </td>
+            </tr>
+        </table>
+        
+
+        <!-- Kata Pengantar -->
+        <div class="page-break"></div>
+        
+        <h1 class="center">KATA PENGANTAR</h1>
+        
+        <p class="no-indent">Puji dan syukur kehadirat Allah Subhanahu Wa Ta'ala yang telah melimpahkan rahmat dan hidayah-Nya sehingga penulis dapat menyelesaikan laporan magang ini dengan judul "Pembuatan Sistem Arsip Data untuk Sekolah Dasar di Seluruh Kota Pekanbaru". Berbagai kesulitan dan hambatan dalam penulisan laporan magang ini banyak dihadapi penulis, namun berkat bimbingan dan petunjuk serta dorongan dari dosen pembimbing, dukungan dari teman-teman dan berbagai pihak baik moral maupun materi sehingga laporan magang ini dapat diselesaikan.</p>
+        
+        <p class="no-indent">Pada kesempatan ini izinkan penulis mengucapkan terima kasih yang sedalam-dalamnya kepada semua pihak yang telah memberikan dukungan, partisipasi, baik fasilitas dan kesempatan berdiskusi, khususnya kepada:</p>
+        
+        <ol>
+            <li>Ibu Agustin, M.Kom., Ketua Program Studi Teknik Informatika dan Bapak Parlindungan Kudadiri, S.Kom. selaku Sekretaris Program Studi Teknik Informatika.</li>
+            <li>Seluruh Bapak/Ibu Dosen, serta Karyawan/I di lingkungan Universitas Sains dan Teknologi Indonesia.</li>
+            <li>Bapak Budi Santoso, S.Kom. selaku Pembimbing Lapangan di Dinas Pendidikan Kota Pekanbaru.</li>
+            <li>Kedua orang tua yang selalu memberikan dukungan dan doa.</li>
+            <li>Teman-teman seperjuangan yang telah membantu dalam penyelesaian magang ini.</li>
+        </ol>
+        
+        <p class="no-indent">Dalam penulisan laporan magang ini penulis menyadari banyak terdapat kekurangan yang harus diperbaiki, namun penulis berusaha untuk mencapai hasil yang terbaik. Akhir kata penulis mengharapkan semoga laporan magang ini dapat bermanfaat bagi kita semua.</p>
+        
+        <p class="right">Pekanbaru, 20 September 2024</p>
+        <p class="right">Penulis,</p>
+        <br><br>
+        <p class="right">Nama Mahasiswa</p>
+        <p class="right">NIM: 123456789</p>
+        
+
+        <!-- Daftar Isi -->
+        <div class="page-break"></div>
+        
+        <h1 class="center">DAFTAR ISI</h1>
+        
+        <table class="content-table">
+            <tr>
+                <td>HALAMAN JUDUL</td>
+                <td class="page-number">i</td>
+            </tr>
+            <tr>
+                <td>HALAMAN PENGESAHAN</td>
+                <td class="page-number">ii</td>
+            </tr>
+            <tr>
+                <td>KATA PENGANTAR</td>
+                <td class="page-number">iii</td>
+            </tr>
+            <tr>
+                <td>DAFTAR ISI</td>
+                <td class="page-number">iv</td>
+            </tr>
+            <tr>
+                <td>DAFTAR GAMBAR</td>
+                <td class="page-number">v</td>
+            </tr>
+            <tr>
+                <td>DAFTAR TABEL</td>
+                <td class="page-number">vi</td>
+            </tr>
+            <tr>
+                <td>BAB I PENDAHULUAN</td>
+                <td class="page-number">1</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;1.1 Deskripsi Instansi</td>
+                <td class="page-number">1</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;1.2 Visi, Misi dan Tujuan Instansi</td>
+                <td class="page-number">2</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;1.3 Struktur Organisasi</td>
+                <td class="page-number">3</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;1.4 Proses Bisnis dalam Instansi</td>
+                <td class="page-number">4</td>
+            </tr>
+            <tr>
+                <td>BAB II PELAKSANAAN MAGANG</td>
+                <td class="page-number">5</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;2.1 Penjelasan Progress Book</td>
+                <td class="page-number">5</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;2.2 Hasil Pekerjaan Secara Umum</td>
+                <td class="page-number">6</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;2.3 Bukti Hasil Pekerjaan</td>
+                <td class="page-number">7</td>
+            </tr>
+            <tr>
+                <td>BAB III HASIL PEMBELAJARAN</td>
+                <td class="page-number">8</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;3.1 Manfaat Magang</td>
+                <td class="page-number">8</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;3.2 Penerapan Ilmu dalam Magang</td>
+                <td class="page-number">9</td>
+            </tr>
+            <tr>
+                <td>BAB IV PENUTUP</td>
+                <td class="page-number">10</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;4.1 Kesimpulan</td>
+                <td class="page-number">10</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;4.2 Saran</td>
+                <td class="page-number">11</td>
+            </tr>
+            <tr>
+                <td>LAMPIRAN</td>
+                <td class="page-number">12</td>
+            </tr>
+        </table>
+       
+
+        <!-- Daftar Gambar -->
+        <div class="page-break"></div>
+        
+        <h1 class="center">DAFTAR GAMBAR</h1>
+        
+        <table class="content-table">
+            <tr>
+                <td>Gambar 1.1. Struktur Organisasi Dinas Pendidikan Kota Pekanbaru</td>
+                <td class="page-number">3</td>
+            </tr>
+            <tr>
+                <td>Gambar 2.1. Diagram Use Case Sistem Arsip Data</td>
+                <td class="page-number">6</td>
+            </tr>
+            <tr>
+                <td>Gambar 2.2. Tampilan Antarmuka Sistem Arsip Data</td>
+                <td class="page-number">7</td>
+            </tr>
+            <tr>
+                <td>Gambar 2.3. Diagram Arsitektur Sistem</td>
+                <td class="page-number">7</td>
+            </tr>
+        </table>
+        
+    
+
+        <!-- Daftar Tabel -->
+        <div class="page-break"></div>
+        
+        <h1 class="center">DAFTAR TABEL</h1>
+        
+        <table class="content-table">
+            <tr>
+                <td>Tabel 2.1. Progress Book Kegiatan Magang</td>
+                <td class="page-number">5</td>
+            </tr>
+            <tr>
+                <td>Tabel 3.1. Penerapan Mata Kuliah dalam Pengembangan Sistem</td>
+                <td class="page-number">9</td>
+            </tr>
+        </table>
+        
+    
+
+        <!-- BAB I Pendahuluan -->
+        <div class="page-break"></div>
+        
+        <h1 class="center chapter-title">BAB I</h1>
+        <h1 class="center">PENDAHULUAN</h1>
+        
+        <h3>1.1 Deskripsi Instansi</h3>
+        <p>Dinas Pendidikan Kota Pekanbaru merupakan instansi pemerintah yang bertanggung jawab dalam pengelolaan dan pengembangan pendidikan di tingkat kota. Instansi ini membawahi seluruh sekolah dasar negeri dan swasta yang berjumlah sekitar 300 sekolah di wilayah Kota Pekanbaru. Tugas utama Dinas Pendidikan adalah merumuskan kebijakan, menyelenggarakan, mengoordinasikan, dan mengendalikan kegiatan di bidang pendidikan.</p>
+        <p>Selama melaksanakan magang, penulis ditempatkan di Bidang Pembinaan Sekolah Dasar yang khusus menangani pengelolaan data dan arsip sekolah dasar. Permasalahan utama yang dihadapi adalah masih manualnya pengelolaan arsip data siswa, guru, dan administrasi sekolah yang menyebabkan lambatnya proses pengambilan keputusan dan pelaporan.</p>
+        
+        <h3>1.2 Visi, Misi dan Tujuan Instansi</h3>
+        <p>Visi Dinas Pendidikan Kota Pekanbaru adalah "Terwujudnya Pendidikan yang Berkualitas, Berkarakter, dan Berdaya Saing untuk Mewujudkan Pekanbaru sebagai Kota Madani".</p>
+        <p>Misi instansi ini adalah:</p>
+        <ol>
+            <li>Meningkatkan kualitas dan aksesibilitas pendidikan bagi seluruh masyarakat</li>
+            <li>Mengembangkan pendidikan karakter yang berbasis kearifan lokal</li>
+            <li>Meningkatkan profesionalisme pendidik dan tenaga kependidikan</li>
+            <li>Mengembangkan sistem manajemen pendidikan yang akuntabel dan transparan</li>
+            <li>Memperkuat sarana dan prasarana pendidikan yang memadai dan merata</li>
+        </ol>
+        <p>Tujuan dari magang ini adalah mengembangkan sistem arsip data digital yang terintegrasi untuk seluruh sekolah dasar di Kota Pekanbaru guna mendukung misi keempat Dinas Pendidikan yaitu mengembangkan sistem manajemen pendidikan yang akuntabel dan transparan.</p>
+        
+    
+
+        <!-- Lanjutan BAB I -->
+        <div class="page-break"></div>
+        
+        <h3>1.3 Struktur Organisasi</h3>
+        <p>Struktur organisasi Dinas Pendidikan Kota Pekanbaru terdiri dari Kepala Dinas, Sekretaris, dan empat bidang yaitu Bidang Pembinaan SD, Bidang Pembinaan SMP, Bidang Pembinaan PAUD dan PNF, serta Bidang PTK. Selain itu terdapat unit pelaksana teknis dan staf administrasi.</p>
+        
+        <p class="figure-caption">Gambar 1.1. Struktur Organisasi Dinas Pendidikan Kota Pekanbaru</p>
+        <div class="center">
+            <div style="width: 100%; height: 200px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
+                [Gambar Struktur Organisasi]
+            </div>
+        </div>
+        
+        <p>Penulis selama magang berada di bawah pembinaan langsung Kepala Seksi Data dan Informasi pada Bidang Pembinaan Sekolah Dasar. Struktur ini memungkinkan koordinasi yang efektif dengan sekolah-sekolah dasar dalam implementasi sistem arsip data.</p>
+        
+        <h3>1.4 Proses Bisnis dalam Instansi</h3>
+        <p>Proses bisnis utama di Dinas Pendidikan Kota Pekanbaru terkait dengan pengelolaan data pendidikan meliputi:</p>
+        <ol>
+            <li>Penerimaan dan verifikasi data siswa dari sekolah</li>
+            <li>Pengolahan dan analisis data pendidikan</li>
+            <li>Pelaporan data ke pemerintah provinsi dan pusat</li>
+            <li>Distribusi informasi ke sekolah-sekolah</li>
+            <li>Monitoring dan evaluasi program pendidikan</li>
+        </ol>
+        <p>Selama ini, proses bisnis tersebut masih dilakukan secara manual dengan menggunakan aplikasi office dan pengiriman data melalui email atau media fisik. Hal ini menyebabkan lambatnya proses, rentannya kesalahan data, dan kesulitan dalam melacak arsip historis.</p>
+        <p>Dengan adanya sistem arsip data digital yang dikembangkan, diharapkan seluruh proses bisnis dapat berjalan lebih efisien, akurat, dan transparan. Sistem ini akan mengintegrasikan seluruh sekolah dasar dalam satu platform terpadu untuk pengelolaan arsip data.</p>
+        
+
+        <!-- BAB II Pelaksanaan Magang -->
+        <div class="page-break"></div>
+        
+        <h1 class="center chapter-title">BAB II</h1>
+        <h1 class="center">PELAKSANAAN MAGANG</h1>
+        
+        <h3>2.1 Penjelasan Progress Book</h3>
+        <p>Selama masa magang yang berlangsung selama 45 hari kerja, penulis telah melaksanakan berbagai kegiatan yang tercatat dalam progress book. Kegiatan utama meliputi analisis kebutuhan, perancangan sistem, implementasi, pengujian, dan pelatihan pengguna.</p>
+        
+        <p class="figure-caption">Tabel 2.1. Progress Book Kegiatan Magang</p>
+        <table>
+            <tr>
+                <th>Minggu</th>
+                <th>Tanggal</th>
+                <th>Kegiatan</th>
+                <th>Hasil</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1-5 Juli 2024</td>
+                <td>Orientasi dan analisis kebutuhan</td>
+                <td>Dokumen spesifikasi kebutuhan</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>8-12 Juli 2024</td>
+                <td>Perancangan database dan antarmuka</td>
+                <td>Diagram ERD dan mockup antarmuka</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>15-19 Juli 2024</td>
+                <td>Implementasi modul autentikasi dan manajemen user</td>
+                <td>Modul login dan manajemen role</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>22-26 Juli 2024</td>
+                <td>Implementasi modul manajemen sekolah dan siswa</td>
+                <td>CRUD data sekolah dan siswa</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>29 Juli-2 Agustus 2024</td>
+                <td>Implementasi modul arsip digital dan pencarian</td>
+                <td>Upload dokumen dan fitur pencarian</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>5-9 Agustus 2024</td>
+                <td>Pengujian sistem dan pelatihan pengguna</td>
+                <td>Dokumen manual dan laporan testing</td>
+            </tr>
+        </table>
+
+
+        <!-- Lanjutan BAB II -->
+        <div class="page-break"></div>
+        
+        <h3>2.2 Hasil Pekerjaan Secara Umum</h3>
+        <p>Hasil utama dari magang ini adalah terciptanya sebuah sistem arsip data digital untuk sekolah dasar di Kota Pekanbaru. Sistem ini dibangun menggunakan PHP Native, MySQL, CSS murni, dan JavaScript murni dengan arsitektur yang terstruktur.</p>
+        
+        <p class="figure-caption">Gambar 2.1. Diagram Use Case Sistem Arsip Data</p>
+        <div class="center">
+            <div style="width: 100%; height: 200px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
+                [Diagram Use Case Sistem]
+            </div>
+        </div>
+        
+        <p>Fitur-fitur utama yang berhasil diimplementasikan dalam sistem ini antara lain:</p>
+        <ol>
+            <li>Autentikasi multi-level (Admin Kota, Admin Sekolah)</li>
+            <li>Manajemen data sekolah dan admin sekolah</li>
+            <li>Manajemen data siswa dan kelas</li>
+            <li>Upload dan manajemen ijazah digital</li>
+            <li>Pencarian data real-time</li>
+            <li>Backup data otomatis</li>
+            <li>Log aktivitas pengguna</li>
+            <li>Antarmuka responsif dengan dark mode</li>
+        </ol>
+        <p>Sistem telah diuji dengan data contoh dari 10 sekolah dasar dan berhasil menangani lebih dari 5.000 data siswa serta 1.200 arsip ijazah digital. Waktu respons sistem untuk pencarian data berada di bawah 2 detik bahkan dengan data yang besar.</p>
+        
+       
+
+        <!-- Lanjutan BAB II - Bukti Hasil Pekerjaan -->
+        <div class="page-break"></div>
+        
+        <h3>2.3 Bukti Hasil Pekerjaan</h3>
+        <p>Berikut adalah bukti-bukti hasil pekerjaan selama magang:</p>
+        
+        <p class="figure-caption">Gambar 2.2. Tampilan Antarmuka Sistem Arsip Data</p>
+        <div class="center">
+            <div style="width: 100%; height: 200px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
+                [Tampilan Antarmuka Sistem]
+            </div>
+        </div>
+        
+        <p class="figure-caption">Gambar 2.3. Diagram Arsitektur Sistem</p>
+        <div class="center">
+            <div style="width: 100%; height: 200px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
+                [Diagram Arsitektur Sistem]
+            </div>
+        </div>
+        
+        <p>Selain bukti visual di atas, berikut adalah bukti teknis yang dihasilkan:</p>
+        <ol>
+            <li>Kode sumber aplikasi dengan lebih dari 50 file PHP</li>
+            <li>Database dengan 15 tabel yang saling terhubung</li>
+            <li>Dokumentasi teknis dan user manual</li>
+            <li>Laporan hasil pengujian sistem</li>
+            <li>Sertifikat hak cipta atas perangkat lunak</li>
+        </ol>
+        <p>Sistem telah diinstal pada server Dinas Pendidikan Kota Pekanbaru dan dapat diakses melalui http://arsip-data.disdik.pekanbaru.go.id. Implementasi penuh untuk seluruh 300 sekolah dasar direncanakan akan dilakukan secara bertahap dalam waktu 6 bulan ke depan.</p>
+        
+    
+
+        <!-- BAB III Hasil Pembelajaran -->
+        <div class="page-break"></div>
+        
+        <h1 class="center chapter-title">BAB III</h1>
+        <h1 class="center">HASIL PEMBELAJARAN</h1>
+        
+        <h3>3.1 Manfaat Magang</h3>
+        <p>Magang ini memberikan banyak manfaat bagi pengembangan kompetensi penulis, baik dari segi hard skills maupun soft skills. Manfaat utama yang diperoleh adalah:</p>
+        <ol>
+            <li>Pengalaman langsung dalam menganalisis kebutuhan sistem untuk organisasi pemerintah</li>
+            <li>Kemampuan untuk menerapkan teori basis data dalam skala besar dengan lebih dari 15 tabel yang saling terhubung</li>
+            <li>Penguasaan teknologi PHP Native, MySQL, CSS, dan JavaScript dalam pembuatan aplikasi web yang kompleks</li>
+            <li>Pemahaman tentang pentingnya keamanan data dan implementasi mekanisme autentikasi yang robust</li>
+            <li>Kemampuan untuk bekerja dalam lingkungan profesional dengan tenggat waktu dan standar kualitas yang tinggi</li>
+            <li>Pengembangan kemampuan komunikasi dengan berbagai pemangku kepentingan termasuk atasan, rekan kerja, dan pengguna sistem</li>
+            <li>Pemahaman tentang proses bisnis di instansi pemerintah dan tantangan dalam digitalisasi proses tersebut</li>
+        </ol>
+        <p>Selain manfaat teknis, magang ini juga memberikan manfaat non-teknis seperti peningkatan kepercayaan diri, kemampuan manajemen waktu, dan adaptasi dengan budaya kerja di instansi pemerintah.</p>
+        
+    
+
+        <!-- Lanjutan BAB III -->
+        <div class="page-break"></div>
+        
+        <h3>3.2 Penerapan Ilmu dalam Magang</h3>
+        <p>Selama perkuliahan, penulis telah mempelajari berbagai mata kuliah yang langsung dapat diterapkan dalam pelaksanaan magang ini. Berikut adalah penerapan ilmu dari mata kuliah yang relevan:</p>
+        
+        <p class="figure-caption">Tabel 3.1. Penerapan Mata Kuliah dalam Pengembangan Sistem</p>
+        <table>
+            <tr>
+                <th>Mata Kuliah</th>
+                <th>Penerapan dalam Magang</th>
+            </tr>
+            <tr>
+                <td>Pemrograman Web</td>
+                <td>Pembangunan antarmuka web menggunakan HTML, CSS, JavaScript</td>
+            </tr>
+            <tr>
+                <td>Basis Data</td>
+                <td>Perancangan dan implementasi database MySQL dengan normalisasi</td>
+            </tr>
+            <tr>
+                <td>Rekayasa Perangkat Lunak</td>
+                <td>Penerapan metode waterfall dalam pengembangan sistem</td>
+            </tr>
+            <tr>
+                <td>Interaksi Manusia dan Komputer</td>
+                <td>Perancangan antarmuka yang user-friendly dan responsive</td>
+            </tr>
+            <tr>
+                <td>Keamanan Informasi</td>
+                <td>Implementasi mekanisme keamanan seperti hash password dan sanitasi input</td>
+            </tr>
+            <tr>
+                <td>Jaringan Komputer</td>
+                <td>Konfigurasi server dan deployment aplikasi ke production environment</td>
+            </tr>
+        </table>
+        
+        <p>Selain mata kuliah inti di atas, mata kuliah pendukung seperti Matematika Diskrit membantu dalam perancangan algoritma pencarian yang efisien, sementara mata kuliah Etika Profesi memberikan panduan dalam menjaga kerahasiaan data sensitif selama pengembangan sistem.</p>
+        <p>Penerapan ilmu dari perkuliahan tidak hanya terbatas pada aspek teknis, tetapi juga pada aspek manajerial seperti perencanaan project, manajemen waktu, dan dokumentasi yang baik sesuai dengan standar industri.</p>
+        
+
+
+        <!-- BAB IV Penutup -->
+        <div class="page-break"></div>
+        
+        <h1 class="center chapter-title">BAB IV</h1>
+        <h1 class="center">PENUTUP</h1>
+        
+        <h3>4.1 Kesimpulan</h3>
+        <p>Berdasarkan pelaksanaan magang yang telah dilakukan selama 45 hari kerja di Dinas Pendidikan Kota Pekanbaru, dapat disimpulkan bahwa:</p>
+        <ol>
+            <li>Kebutuhan akan sistem arsip data digital untuk sekolah dasar di Kota Pekanbaru sangat mendesak mengingat banyaknya kendala dalam pengelolaan data secara manual.</li>
+            <li>Sistem arsip data yang dikembangkan telah berhasil memenuhi kebutuhan dasar dengan fitur-fitur seperti manajemen data sekolah, siswa, ijazah digital, serta pencarian data yang efisien.</li>
+            <li>Penerapan teknologi PHP Native, MySQL, CSS murni, dan JavaScript murni terbukti cukup untuk membangun sistem yang robust dan scalable untuk menangani data dari 300 sekolah dasar.</li>
+            <li>Pengujian sistem menunjukkan performa yang memuaskan dengan waktu respons cepat dan kemampuan menangani data dalam jumlah besar.</li>
+            <li>Magang ini memberikan pengalaman berharga dalam penerapan ilmu yang diperoleh di perkuliahan ke dalam dunia kerja nyata, sekaligus mengembangkan soft skills yang diperlukan dalam lingkungan profesional.</li>
+        </ol>
+        <p>Dengan demikian, sistem arsip data digital ini diharapkan dapat menjadi solusi bagi permasalahan pengelolaan data di Dinas Pendidikan Kota Pekanbaru dan meningkatkan efisiensi serta akurasi dalam pengelolaan arsip pendidikan.</p>
+ 
+
+        <!-- Lanjutan BAB IV -->
+        <div class="page-break"></div>
+        
+        <h3>4.2 Saran</h3>
+        <p>Berdasarkan pengalaman selama melaksanakan magang dan mengembangkan sistem arsip data, berikut adalah saran untuk pengembangan lebih lanjut:</p>
+        <ol>
+            <li>Perlu dilakukan pelatihan secara berkala untuk admin sekolah agar dapat memanfaatkan sistem secara maksimal dan memahami prosedur backup data.</li>
+            <li>Pengembangan fitur tambahan seperti integrasi dengan sistem Dapodik untuk sinkronisasi data otomatis akan sangat meningkatkan efisiensi.</li>
+            <li>Penambahan modul analitik dan dashboard untuk visualisasi data akan membantu dalam pengambilan keputusan berdasarkan data.</li>
+            <li>Perlu dilakukan optimasi database secara berkala terutama ketika jumlah data sudah sangat besar untuk mempertahankan performa sistem.</li>
+            <li>Implementasi mekanisme disaster recovery dan redundancy untuk memastikan ketersediaan sistem secara terus-menerus.</li>
+            <li>Untuk mahasiswa yang akan melaksanakan magang berikutnya, disarankan untuk mempelajari framework PHP seperti Laravel atau CodeIgniter untuk pengembangan yang lebih cepat dan terstruktur.</li>
+            <li>Perlu adanya MoU antara Universitas dengan Dinas Pendidikan untuk kelanjutan pengembangan sistem dan magang mahasiswa berikutnya.</li>
+        </ol>
+        <p>Dengan implementasi saran-saran di atas, sistem arsip data digital ini dapat terus dikembangkan menjadi lebih komprehensif dan bermanfaat bagi dunia pendidikan di Kota Pekanbaru.</p>
+        
+    
+
+        <!-- Lampiran -->
+        <div class="page-break"></div>
+        
+        <h1 class="center chapter-title">LAMPIRAN</h1>
+        
+        <h3>Lampiran 1. Dokumentasi Kode Program</h3>
+        <p>Berikut adalah contoh kode program dari sistem arsip data yang dikembangkan:</p>
+        
+        <h4>Konfigurasi Database (config/database.php)</h4>
+        <pre style="font-size: 10pt; background-color: #f5f5f5; padding: 10px; border: 1px solid #ddd; overflow: auto;">
+&lt;?php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'sistem_arsip_data');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+
+class Database {
+    private $host = DB_HOST;
+    private $db_name = DB_NAME;
+    private $username = DB_USER;
+    private $password = DB_PASS;
+    public $conn;
+
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, 
+                                $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+        } catch(PDOException $exception) {
+            echo "Connection error: " . $exception->getMessage();
+        }
+        return $this->conn;
+    }
+}
+?&gt;
+        </pre>
+        
+        <h4>Model Sekolah (app/models/SekolahModel.php)</h4>
+        <pre style="font-size: 10pt; background-color: #f5f5f5; padding: 10px; border: 1px solid #ddd; overflow: auto;">
+&lt;?php
+class SekolahModel {
+    private $conn;
+    private $table_name = "sekolah";
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function readAll() {
+        $query = "SELECT * FROM " . $this->table_name . " ORDER BY nama_sekolah ASC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function create($data) {
+        $query = "INSERT INTO " . $this->table_name . " 
+                 SET npsn=:npsn, nama_sekolah=:nama_sekolah, alamat=:alamat, 
+                     jenis=:jenis, status=:status, email=:email, telepon=:telepon";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        // Bind parameters
+        $stmt->bindParam(":npsn", $data['npsn']);
+        $stmt->bindParam(":nama_sekolah", $data['nama_sekolah']);
+        $stmt->bindParam(":alamat", $data['alamat']);
+        $stmt->bindParam(":jenis", $data['jenis']);
+        $stmt->bindParam(":status", $data['status']);
+        $stmt->bindParam(":email", $data['email']);
+        $stmt->bindParam(":telepon", $data['telepon']);
+        
+        if($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+}
+?&gt;
+        </pre>
+
+    <div class="no-print" style="text-align: center; margin: 20px;">
+        <button onclick="window.print()" style="padding: 10px 20px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            <i class="fas fa-print"></i> Cetak Laporan
+        </button>
+    </div>
+</body>
+</html>
